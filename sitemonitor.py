@@ -4,7 +4,8 @@ import time
 import smtplib
 
 while True:
-	url = "http://reddit.com/"
+	uri = raw_input("Enter the URI of the website you wish to monitor: ")
+	email = raw_input("Enter the email address where you wish to be notified when there is a change: ")
 	headers = {'User-Agent': 'Chrome/56.0.2924.87'}
 	response = requests.get(url, headers=headers)
 	soup = BeautifulSoup(response.text, "lxml")
@@ -13,7 +14,7 @@ while True:
 		time.sleep(60)
 		continue
 	else:
-		msg = 'REDDIT UPDATED!'
+		msg = 'WEBSITE UPDATED!'
 		fromaddr = 'justthings4schcool@gmail.com'
 		toaddr  = ['thanhtrinh12122010@gmail.com','davidtrieu6@gmail.com', 'gameguy47@gmail.com', 'francis.c.phan@gmail.com']
 
