@@ -8,7 +8,13 @@ while True:
 	email = raw_input("Enter the email address where you wish to be notified when there is a change: ")
 	headers = {'User-Agent': 'Chrome/56.0.2924.87'}
 	response = requests.get(url, headers=headers)
+	response.cookies['example_cookie_name']
 	soup = BeautifulSoup(response.text, "lxml")
+	
+	url = raw_input("Enter the URI of the website you wish to monitor; ")
+	cookies = dict(cookies_are='working')
+	response = request.get(url, cookies=cookies)
+	response.text
 
 	if str(soup).find("Reddit") == -1:
 		time.sleep(60)
